@@ -6,7 +6,7 @@ import "./ChatBox.css";
 // ================================
 // DEPLOYED FASTAPI BACKEND
 // ================================
-const API_URL = "https://info-ai-br52.onrender.com";
+const API_URL = import.meta.env.VITE_API_URL;
 
 
 function ChatBox() {

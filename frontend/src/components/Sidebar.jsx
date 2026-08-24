@@ -2,38 +2,37 @@ import React from "react";
 import "./Sidebar.css";
 
 function Sidebar({ onNewChat, onLogout }) {
-
   return (
     <aside className="sidebar">
 
-      {/* LOGO */}
+      {/* =========================
+          LOGO
+      ========================= */}
 
       <div className="sidebar-header">
-
         <h2>
-
-          <span className="sidebar-info-logo">
-            i
-          </span>
-
-          INFO-AI
-
+          <span className="sidebar-info-logo">i</span>
+          <span className="sidebar-title">INFO-AI</span>
         </h2>
-
       </div>
 
 
-      {/* NEW CHAT */}
+      {/* =========================
+          NEW CHAT
+      ========================= */}
 
       <button
         className="new-chat-button"
         onClick={onNewChat}
       >
-        + New Chat
+        <span className="new-chat-icon">＋</span>
+        <span className="new-chat-text">New Chat</span>
       </button>
 
 
-      {/* HISTORY */}
+      {/* =========================
+          CHAT HISTORY
+      ========================= */}
 
       <div className="chat-history">
 
@@ -42,37 +41,51 @@ function Sidebar({ onNewChat, onLogout }) {
         </p>
 
         <button className="history-item">
-          Java Questions
+          <span>💬</span>
+          <span>Java Questions</span>
         </button>
 
         <button className="history-item">
-          Machine Learning
+          <span>💬</span>
+          <span>Machine Learning</span>
         </button>
 
         <button className="history-item">
-          Python Basics
+          <span>💬</span>
+          <span>Python Basics</span>
         </button>
 
       </div>
 
 
-      {/* BOTTOM */}
+      {/* =========================
+          BOTTOM OPTIONS
+      ========================= */}
 
       <div className="sidebar-bottom">
 
         <button className="sidebar-option">
-          ⚙ Settings
+          <span>⚙️</span>
+          <span className="sidebar-option-text">
+            Settings
+          </span>
         </button>
 
         <button className="sidebar-option">
-          👤 Account
+          <span>👤</span>
+          <span className="sidebar-option-text">
+            Account
+          </span>
         </button>
 
         <button
-          className="sidebar-option"
+          className="sidebar-option logout-button"
           onClick={onLogout}
         >
-          Logout
+          <span>↪</span>
+          <span className="sidebar-option-text">
+            Logout
+          </span>
         </button>
 
       </div>
