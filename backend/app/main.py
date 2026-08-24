@@ -3,9 +3,19 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.routes.chat import router as chat_router
 
-app = FastAPI(title="INFO-AI")
 
+app = FastAPI(
+    title="INFO-AI",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json",
+)
+
+
+# =========================
 # CORS
+# =========================
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -17,9 +27,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Chat routes
+
+# =========================
+# CHAT ROUTES
+# =========================
+
 app.include_router(chat_router)
 
+
+# =========================
+# HOME
+# =========================
 
 @app.get("/")
 def root():
