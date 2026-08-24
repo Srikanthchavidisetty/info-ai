@@ -3,38 +3,27 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.routes.chat import router as chat_router
 
+app = FastAPI(title="INFO-AI")
 
-app = FastAPI(
-    title="College AI Assistant"
-)
-
-
-# ==========================================
 # CORS
-# ==========================================
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,
+    allow_origins=[
+        "http://localhost:5173",
+        "https://your-frontend-url.vercel.app",
+    ],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-
-# ==========================================
-# ROUTES
-# ==========================================
-
+# Chat routes
 app.include_router(chat_router)
 
-
-# ==========================================
-# HOME
-# ==========================================
 
 @app.get("/")
 def root():
     return {
-        "message": "College AI Assistant Backend is running!"
+        "status": "ok",
+        "message": "INFO-AI backend is running"
     }
