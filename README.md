@@ -1,4 +1,4 @@
-# College AI Assistant
+# AI Assistant
 
 An LLM + RAG college assistant.
 
