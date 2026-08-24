@@ -1,0 +1,388 @@
+/* =========================================
+   CHAT CONTAINER
+========================================= */
+
+.chat-container {
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: 20px auto 50px;
+
+  padding: 0 30px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   INPUT AREA
+========================================= */
+
+.input-area {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   UPLOAD BUTTON
+========================================= */
+
+.upload-button {
+  width: 62px;
+  height: 62px;
+
+  flex-shrink: 0;
+
+  border: 1px solid #444444 !important;
+
+  border-radius: 9px !important;
+
+  background: #181818 !important;
+
+  color: #ffffff !important;
+
+  font-size: 24px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.upload-button:hover {
+  border-color: #e50914 !important;
+
+  background: #222222 !important;
+}
+
+
+/* =========================================
+   TEXT INPUT
+========================================= */
+
+.input-area input {
+  flex: 1;
+
+  width: 100%;
+
+  height: 62px;
+
+  padding: 0 20px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #444444 !important;
+
+  border-radius: 9px !important;
+
+  outline: none;
+
+  background: #181818 !important;
+
+  color: #ffffff !important;
+
+  font-size: 17px;
+}
+
+.input-area input::placeholder {
+  color: #888888 !important;
+}
+
+.input-area input:focus {
+  border-color: #e50914 !important;
+}
+
+
+/* =========================================
+   SEND BUTTON
+========================================= */
+
+.send-button {
+  height: 62px;
+
+  flex-shrink: 0;
+
+  padding: 0 32px;
+
+  border: none !important;
+
+  border-radius: 9px !important;
+
+  background: #e50914 !important;
+
+  color: #ffffff !important;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.send-button:hover {
+  background: #f40612 !important;
+}
+
+.send-button:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   SELECTED FILE
+========================================= */
+
+.selected-file {
+  width: fit-content;
+
+  max-width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  margin-top: 12px;
+
+  padding: 10px 14px;
+
+  background: #181818 !important;
+
+  color: #ffffff !important;
+
+  border: 1px solid #333333 !important;
+
+  border-radius: 7px;
+
+  box-sizing: border-box;
+}
+
+.file-icon {
+  margin-right: 10px;
+}
+
+.file-name {
+  max-width: 400px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  color: #ffffff !important;
+}
+
+.remove-file {
+  margin-left: 12px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #999999;
+
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+.remove-file:hover {
+  color: #e50914;
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading {
+  margin-top: 20px;
+
+  text-align: center;
+
+  color: #e50914 !important;
+
+  font-size: 15px;
+}
+
+
+/* =========================================
+   AI ANSWER BOX
+========================================= */
+
+.answer-box {
+  width: 100% !important;
+
+  margin-top: 25px !important;
+
+  padding: 30px !important;
+
+  box-sizing: border-box;
+
+  background: #181818 !important;
+
+  color: #ffffff !important;
+
+  border: 1px solid #333333 !important;
+
+  border-radius: 10px !important;
+
+  box-shadow: none !important;
+}
+
+
+/* =========================================
+   AI ANSWER TITLE
+========================================= */
+
+.answer-box h2 {
+  margin: 0 0 20px !important;
+
+  padding-bottom: 15px !important;
+
+  border-bottom: 1px solid #333333 !important;
+
+  color: #ffffff !important;
+
+  font-size: 24px !important;
+}
+
+
+/* =========================================
+   ANSWER CONTENT
+========================================= */
+
+.answer-content {
+  width: 100%;
+
+  background: transparent !important;
+
+  color: #dddddd !important;
+
+  line-height: 1.7;
+
+  font-size: 16px;
+}
+
+.answer-content p {
+  margin: 12px 0;
+
+  color: #dddddd !important;
+}
+
+.answer-content h1,
+.answer-content h2,
+.answer-content h3,
+.answer-content h4 {
+  color: #ffffff !important;
+}
+
+.answer-content strong {
+  color: #ffffff !important;
+}
+
+.answer-content ul,
+.answer-content ol {
+  padding-left: 25px;
+
+  color: #dddddd !important;
+}
+
+.answer-content li {
+  color: #dddddd !important;
+
+  margin-bottom: 6px;
+}
+
+
+/* =========================================
+   CODE BLOCK
+========================================= */
+
+.answer-content pre {
+  width: 100%;
+
+  padding: 15px;
+
+  box-sizing: border-box;
+
+  overflow-x: auto;
+
+  background: #000000 !important;
+
+  color: #ffffff !important;
+
+  border: 1px solid #333333;
+
+  border-radius: 7px;
+}
+
+.answer-content code {
+  color: #ffffff !important;
+
+  font-family: Consolas, Monaco, monospace;
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+.answer-content a {
+  color: #e50914 !important;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .chat-container {
+    padding: 0 15px;
+
+    margin-top: 15px;
+  }
+
+  .input-area {
+    gap: 6px;
+  }
+
+  .upload-button {
+    width: 50px;
+    height: 50px;
+
+    font-size: 20px;
+  }
+
+  .input-area input {
+    height: 50px;
+
+    padding: 0 12px;
+
+    font-size: 15px;
+  }
+
+  .send-button {
+    height: 50px;
+
+    padding: 0 15px;
+  }
+
+  .answer-box {
+    padding: 20px !important;
+  }
+}
