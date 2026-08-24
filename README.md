@@ -1,4 +1,4 @@
-# 🎓 INFO-AI — College AI Assistant
+# INFO-AI 
 
 INFO-AI is an AI-powered college assistant built with **React, FastAPI, and Google Gemini**.  
 It allows students to ask questions, receive AI-generated answers, and upload files/images for AI assistance.
