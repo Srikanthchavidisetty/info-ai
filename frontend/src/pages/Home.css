@@ -97,7 +97,9 @@ body,
   box-sizing: border-box;
 }
 .welcome {
+  width: 100%;
   text-align: center;
+  margin: 50px auto 30px;
 }
 
 .welcome h2 {
@@ -112,12 +114,6 @@ body,
   color: #999999;
   font-size: 16px;
 }
-
-.welcome {
-  width: 100%;
-  text-align: center;
-}
-
 
 /* =========================================
    MAKE "today" RED IF USED
