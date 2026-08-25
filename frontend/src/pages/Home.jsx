@@ -86,9 +86,7 @@ function Home({ onLogout }) {
 
         <header className="top-header">
 
-          <h1>
-            College AI Assistant
-          </h1>
+          
 
         </header>
 
