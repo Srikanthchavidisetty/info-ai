@@ -1,23 +1,20 @@
-/* =========================================
+/* ==============================
    CHAT CONTAINER
-========================================= */
+============================== */
 
 .chat-container {
   width: 100%;
-
   max-width: 1100px;
 
-  margin: 20px auto 50px;
-
-  padding: 0 30px;
+  margin: 0 auto;
 
   box-sizing: border-box;
 }
 
 
-/* =========================================
+/* ==============================
    INPUT AREA
-========================================= */
+============================== */
 
 .input-area {
   width: 100%;
@@ -31,93 +28,61 @@
 }
 
 
-/* =========================================
-   UPLOAD BUTTON
-========================================= */
-
-.upload-button {
-  width: 62px;
-  height: 62px;
-
-  flex-shrink: 0;
-
-  border: 1px solid #444444 !important;
-
-  border-radius: 9px !important;
-
-  background: #181818 !important;
-
-  color: #ffffff !important;
-
-  font-size: 24px;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.upload-button:hover {
-  border-color: #e50914 !important;
-
-  background: #222222 !important;
-}
-
-
-/* =========================================
+/* ==============================
    TEXT INPUT
-========================================= */
+============================== */
 
 .input-area input {
   flex: 1;
 
   width: 100%;
-
-  height: 62px;
-
-  padding: 0 20px;
+  height: 58px;
 
   box-sizing: border-box;
 
-  border: 1px solid #444444 !important;
+  padding: 0 20px;
 
-  border-radius: 9px !important;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+
+  background: #171717;
+
+  color: #ffffff;
+
+  font-size: 16px;
 
   outline: none;
 
-  background: #181818 !important;
-
-  color: #ffffff !important;
-
-  font-size: 17px;
-}
-
-.input-area input::placeholder {
-  color: #888888 !important;
+  transition: border-color 0.2s;
 }
 
 .input-area input:focus {
-  border-color: #e50914 !important;
+  border-color: #e50914;
+}
+
+.input-area input::placeholder {
+  color: #777777;
 }
 
 
-/* =========================================
+/* ==============================
    SEND BUTTON
-========================================= */
+============================== */
 
 .send-button {
-  height: 62px;
+  height: 58px;
 
-  flex-shrink: 0;
+  min-width: 110px;
 
-  padding: 0 32px;
+  padding: 0 24px;
 
-  border: none !important;
+  border: none;
 
-  border-radius: 9px !important;
+  border-radius: 10px;
 
-  background: #e50914 !important;
+  background: #e50914;
 
-  color: #ffffff !important;
+  color: #ffffff;
 
   font-size: 16px;
 
@@ -125,23 +90,38 @@
 
   cursor: pointer;
 
-  transition: 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.1s;
 }
 
 .send-button:hover {
-  background: #f40612 !important;
+  background: #f40612;
+}
+
+.send-button:active {
+  transform: scale(0.97);
 }
 
 .send-button:disabled {
-  opacity: 0.5;
+  opacity: 0.6;
 
   cursor: not-allowed;
 }
 
 
-/* =========================================
+/* ==============================
+   FILE UPLOAD BUTTON
+============================== */
+
+.input-area > button:first-child {
+  flex-shrink: 0;
+}
+
+
+/* ==============================
    SELECTED FILE
-========================================= */
+============================== */
 
 .selected-file {
   width: fit-content;
@@ -151,42 +131,40 @@
   display: flex;
   align-items: center;
 
+  gap: 10px;
+
   margin-top: 12px;
 
-  padding: 10px 14px;
+  padding: 9px 12px;
 
-  background: #181818 !important;
+  border: 1px solid #333333;
 
-  color: #ffffff !important;
+  border-radius: 8px;
 
-  border: 1px solid #333333 !important;
+  background: #181818;
 
-  border-radius: 7px;
+  color: #dddddd;
 
   box-sizing: border-box;
 }
 
 .file-icon {
-  margin-right: 10px;
+  font-size: 16px;
 }
 
 .file-name {
-  max-width: 400px;
+  max-width: 500px;
 
   overflow: hidden;
 
-  text-overflow: ellipsis;
-
   white-space: nowrap;
 
-  color: #ffffff !important;
+  text-overflow: ellipsis;
+
+  font-size: 14px;
 }
 
 .remove-file {
-  margin-left: 12px;
-
-  padding: 0;
-
   border: none;
 
   background: transparent;
@@ -195,7 +173,11 @@
 
   font-size: 20px;
 
+  line-height: 1;
+
   cursor: pointer;
+
+  padding: 0 3px;
 }
 
 .remove-file:hover {
@@ -203,186 +185,265 @@
 }
 
 
-/* =========================================
+/* ==============================
    LOADING
-========================================= */
+============================== */
 
 .loading {
+  width: 100%;
+
   margin-top: 20px;
 
-  text-align: center;
+  padding: 15px 18px;
 
-  color: #e50914 !important;
+  box-sizing: border-box;
+
+  border: 1px solid #292929;
+
+  border-radius: 10px;
+
+  background: #151515;
+
+  color: #bbbbbb;
 
   font-size: 15px;
 }
 
 
-/* =========================================
-   AI ANSWER BOX
-========================================= */
+/* ==============================
+   ANSWER BOX
+============================== */
 
 .answer-box {
-  width: 100% !important;
+  width: 100%;
 
-  margin-top: 25px !important;
+  margin-top: 25px;
 
-  padding: 30px !important;
+  padding: 28px 32px;
 
   box-sizing: border-box;
 
-  background: #181818 !important;
+  border: 1px solid #333333;
 
-  color: #ffffff !important;
+  border-radius: 12px;
 
-  border: 1px solid #333333 !important;
+  background: #151515;
 
-  border-radius: 10px !important;
+  color: #ffffff;
 
-  box-shadow: none !important;
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.25);
 }
 
 
-/* =========================================
-   AI ANSWER TITLE
-========================================= */
+/* ==============================
+   ANSWER TITLE
+============================== */
 
 .answer-box h2 {
-  margin: 0 0 20px !important;
+  margin: 0 0 20px;
 
-  padding-bottom: 15px !important;
+  padding-bottom: 16px;
 
-  border-bottom: 1px solid #333333 !important;
+  border-bottom: 1px solid #333333;
 
-  color: #ffffff !important;
+  color: #ffffff;
 
-  font-size: 24px !important;
+  font-size: 25px;
+
+  font-weight: 700;
 }
 
 
-/* =========================================
+/* ==============================
    ANSWER CONTENT
-========================================= */
+============================== */
 
 .answer-content {
-  width: 100%;
-
-  background: transparent !important;
-
-  color: #dddddd !important;
-
-  line-height: 1.7;
+  color: #dddddd;
 
   font-size: 16px;
+
+  line-height: 1.7;
 }
 
 .answer-content p {
-  margin: 12px 0;
+  margin: 0 0 15px;
+}
 
-  color: #dddddd !important;
+.answer-content p:last-child {
+  margin-bottom: 0;
 }
 
 .answer-content h1,
 .answer-content h2,
-.answer-content h3,
-.answer-content h4 {
-  color: #ffffff !important;
+.answer-content h3 {
+  color: #ffffff;
+
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .answer-content strong {
-  color: #ffffff !important;
-}
-
-.answer-content ul,
-.answer-content ol {
-  padding-left: 25px;
-
-  color: #dddddd !important;
-}
-
-.answer-content li {
-  color: #dddddd !important;
-
-  margin-bottom: 6px;
-}
-
-
-/* =========================================
-   CODE BLOCK
-========================================= */
-
-.answer-content pre {
-  width: 100%;
-
-  padding: 15px;
-
-  box-sizing: border-box;
-
-  overflow-x: auto;
-
-  background: #000000 !important;
-
-  color: #ffffff !important;
-
-  border: 1px solid #333333;
-
-  border-radius: 7px;
+  color: #ffffff;
 }
 
 .answer-content code {
-  color: #ffffff !important;
+  padding: 3px 6px;
 
-  font-family: Consolas, Monaco, monospace;
+  border-radius: 5px;
+
+  background: #252525;
+
+  color: #ff4d58;
+
+  font-family: monospace;
+}
+
+.answer-content pre {
+  overflow-x: auto;
+
+  padding: 16px;
+
+  border: 1px solid #333333;
+
+  border-radius: 8px;
+
+  background: #0b0b0b;
+}
+
+.answer-content pre code {
+  padding: 0;
+
+  background: transparent;
+
+  color: #dddddd;
 }
 
 
-/* =========================================
+/* ==============================
    LINKS
-========================================= */
+============================== */
 
 .answer-content a {
-  color: #e50914 !important;
+  color: #e50914;
+
+  text-decoration: none;
+}
+
+.answer-content a:hover {
+  text-decoration: underline;
 }
 
 
-/* =========================================
+/* ==============================
+   LISTS
+============================== */
+
+.answer-content ul,
+.answer-content ol {
+  margin: 10px 0 15px;
+
+  padding-left: 25px;
+}
+
+
+/* ==============================
    MOBILE
-========================================= */
+============================== */
 
 @media (max-width: 700px) {
 
   .chat-container {
-    padding: 0 15px;
-
-    margin-top: 15px;
+    width: 100%;
   }
+
 
   .input-area {
-    gap: 6px;
+    gap: 8px;
   }
 
-  .upload-button {
-    width: 50px;
-    height: 50px;
-
-    font-size: 20px;
-  }
 
   .input-area input {
-    height: 50px;
+    height: 52px;
 
-    padding: 0 12px;
+    padding: 0 14px;
 
-    font-size: 15px;
+    font-size: 14px;
   }
+
 
   .send-button {
-    height: 50px;
+    height: 52px;
 
-    padding: 0 15px;
+    min-width: 80px;
+
+    padding: 0 14px;
+
+    font-size: 14px;
   }
+
 
   .answer-box {
-    padding: 20px !important;
+    padding: 22px 18px;
+
+    margin-top: 20px;
   }
+
+
+  .answer-box h2 {
+    font-size: 22px;
+  }
+
+
+  .answer-content {
+    font-size: 14px;
+  }
+
+
+  .file-name {
+    max-width: 200px;
+  }
+
+}
+
+
+/* ==============================
+   SMALL MOBILE
+============================== */
+
+@media (max-width: 450px) {
+
+  .input-area {
+    flex-wrap: wrap;
+  }
+
+
+  .input-area input {
+    order: 1;
+
+    width: calc(100% - 70px);
+
+    flex: 1;
+  }
+
+
+  .send-button {
+    order: 2;
+
+    width: 100%;
+
+    margin-top: 2px;
+  }
+
+
+  .answer-box {
+    padding: 18px 15px;
+  }
+
+
+  .file-name {
+    max-width: 150px;
+  }
+
 }
