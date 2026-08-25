@@ -1,105 +1,58 @@
-/* =========================================
-   HOME PAGE
-========================================= */
+/* ==============================
+   HOME
+============================== */
 
-html,
-body,
-#root {
-  background: #000000;
-}
-
-.app-layout {
-  width: 100%;
+.home {
   min-height: 100vh;
-
-  margin: 0;
-  padding: 0;
-
   background: #000000;
-
-  overflow-x: hidden;
+  color: #ffffff;
 }
 
 
-/* =========================================
+/* ==============================
    MAIN CONTENT
-========================================= */
+============================== */
 
 .main-content {
   margin-left: 260px;
-
-  width: calc(100% - 260px);
-
   min-height: 100vh;
-
-  background: #141414;
-  color: #ffffff;
-
-  display: flex;
-  flex-direction: column;
-
   box-sizing: border-box;
-
-  overflow-x: hidden;
+  padding: 0 30px 40px;
+  background: #111111;
 }
 
 
-/* =========================================
+/* ==============================
    TOP HEADER
-========================================= */
+============================== */
 
-
-
-
-
-
-/* =========================================
-   RED INFO LOGO
-========================================= */
-
-.info-logo {
-  width: 34px;
-  height: 34px;
-
-  margin-right: 12px;
-
-  display: inline-flex;
+.top-header {
+  height: 105px;
+  display: flex;
   align-items: center;
-  justify-content: center;
-
-  border: 3px solid #e50914;
-  border-radius: 50%;
-
-  color: #e50914;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 25px;
-  font-weight: 700;
-
-  line-height: 1;
-}
-
-
-/* =========================================
-   WELCOME AREA
-========================================= */
-
-.welcome {
-  width: 100%;
-
-  padding: 75px 30px 30px;
-
-  text-align: center;
-
-  background: #141414;
-
+  padding: 0 15px;
   box-sizing: border-box;
+  border-bottom: 1px solid #222222;
+  background: #000000;
 }
+
+.top-header h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+
+/* ==============================
+   WELCOME SECTION
+============================== */
+
 .welcome {
   width: 100%;
+  box-sizing: border-box;
   text-align: center;
-  margin: 50px auto 30px;
+  margin: 55px auto 35px;
 }
 
 .welcome h2 {
@@ -115,142 +68,37 @@ body,
   font-size: 16px;
 }
 
-/* =========================================
-   MAKE "today" RED IF USED
-========================================= */
 
-.welcome h2 span {
-  color: #e50914;
-}
-
-
-/* =========================================
+/* ==============================
    MOBILE
-========================================= */
+============================== */
 
 @media (max-width: 700px) {
 
   .main-content {
     margin-left: 70px;
-
-    width: calc(100% - 70px);
+    padding: 0 15px 30px;
   }
 
   .top-header {
-    height: 65px;
-
-    padding: 0 18px;
+    height: 80px;
+    padding: 0 10px;
   }
 
   .top-header h1 {
-    font-size: 20px;
-  }
-
-  .info-logo {
-    width: 29px;
-    height: 29px;
-
-    margin-right: 8px;
-
-    border-width: 2px;
-
-    font-size: 21px;
+    font-size: 22px;
   }
 
   .welcome {
-    padding: 50px 15px 20px;
+    margin: 40px auto 25px;
   }
 
   .welcome h2 {
-    font-size: 25px;
+    font-size: 26px;
   }
 
   .welcome p {
     font-size: 14px;
-  }
-}
-/* =========================================
-   PHONE RESPONSIVE DESIGN
-========================================= */
-
-@media (max-width: 600px) {
-
-  .main-content {
-    margin-left: 0;
-    width: 100%;
-    min-height: 100vh;
-  }
-
-  .sidebar {
-    width: 60px;
-  }
-
-  .top-header {
-    padding: 0 15px;
-  }
-
-  .welcome {
-    padding: 40px 15px 20px;
-  }
-
-  .welcome h2 {
-    font-size: 24px;
-  }
-
-  .welcome p {
-    font-size: 14px;
-  }
-
-  .chat-container {
-    width: 100%;
-    padding: 0 12px;
-  }
-
-  .input-area {
-    gap: 6px;
-  }
-
-  .input-area input {
-    min-width: 0;
-    height: 50px;
-    font-size: 14px;
-  }
-
-  .upload-button {
-    width: 48px;
-    height: 50px;
-    font-size: 18px;
-  }
-
-  .send-button {
-    height: 50px;
-    padding: 0 14px;
-    font-size: 14px;
-  }
-
-  .answer-box {
-    padding: 18px !important;
-    margin-top: 18px !important;
-  }
-
-  .answer-box h2 {
-    font-size: 20px !important;
-  }
-
-  .answer-content {
-    font-size: 15px;
-    line-height: 1.6;
-  }
-}
-@media (max-width: 600px) {
-
-  .main-content {
-    margin-left: 0;
-    width: 100%;
-
-    min-height: 100vh;
-
-    padding-bottom: 80px;
   }
 
 }
