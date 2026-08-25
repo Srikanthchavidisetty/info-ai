@@ -1,6 +1,6 @@
-/* ==============================
+/* =========================================
    CHAT CONTAINER
-============================== */
+========================================= */
 
 .chat-container {
   width: 100%;
@@ -9,12 +9,14 @@
   margin: 0 auto;
 
   box-sizing: border-box;
+
+  color: #ffffff;
 }
 
 
-/* ==============================
+/* =========================================
    INPUT AREA
-============================== */
+========================================= */
 
 .input-area {
   width: 100%;
@@ -28,9 +30,9 @@
 }
 
 
-/* ==============================
+/* =========================================
    TEXT INPUT
-============================== */
+========================================= */
 
 .input-area input {
   flex: 1;
@@ -43,31 +45,40 @@
   padding: 0 20px;
 
   border: 1px solid #3a3a3a;
+
   border-radius: 10px;
 
   background: #171717;
 
   color: #ffffff;
 
+  font-family: inherit;
+
   font-size: 16px;
 
   outline: none;
 
-  transition: border-color 0.2s;
+  transition: border-color 0.2s,
+              box-shadow 0.2s;
 }
+
 
 .input-area input:focus {
   border-color: #e50914;
+
+  box-shadow:
+    0 0 0 1px #e50914;
 }
+
 
 .input-area input::placeholder {
   color: #777777;
 }
 
 
-/* ==============================
+/* =========================================
    SEND BUTTON
-============================== */
+========================================= */
 
 .send-button {
   height: 58px;
@@ -84,6 +95,8 @@
 
   color: #ffffff;
 
+  font-family: inherit;
+
   font-size: 16px;
 
   font-weight: 700;
@@ -95,13 +108,16 @@
     transform 0.1s;
 }
 
+
 .send-button:hover {
   background: #f40612;
 }
 
+
 .send-button:active {
   transform: scale(0.97);
 }
+
 
 .send-button:disabled {
   opacity: 0.6;
@@ -110,22 +126,12 @@
 }
 
 
-/* ==============================
-   FILE UPLOAD BUTTON
-============================== */
-
-.input-area > button:first-child {
-  flex-shrink: 0;
-}
-
-
-/* ==============================
+/* =========================================
    SELECTED FILE
-============================== */
+========================================= */
 
 .selected-file {
   width: fit-content;
-
   max-width: 100%;
 
   display: flex;
@@ -137,6 +143,8 @@
 
   padding: 9px 12px;
 
+  box-sizing: border-box;
+
   border: 1px solid #333333;
 
   border-radius: 8px;
@@ -144,13 +152,13 @@
   background: #181818;
 
   color: #dddddd;
-
-  box-sizing: border-box;
 }
+
 
 .file-icon {
   font-size: 16px;
 }
+
 
 .file-name {
   max-width: 500px;
@@ -164,7 +172,10 @@
   font-size: 14px;
 }
 
+
 .remove-file {
+  padding: 0 3px;
+
   border: none;
 
   background: transparent;
@@ -176,18 +187,17 @@
   line-height: 1;
 
   cursor: pointer;
-
-  padding: 0 3px;
 }
+
 
 .remove-file:hover {
   color: #e50914;
 }
 
 
-/* ==============================
+/* =========================================
    LOADING
-============================== */
+========================================= */
 
 .loading {
   width: 100%;
@@ -210,9 +220,9 @@
 }
 
 
-/* ==============================
+/* =========================================
    ANSWER BOX
-============================== */
+========================================= */
 
 .answer-box {
   width: 100%;
@@ -236,9 +246,9 @@
 }
 
 
-/* ==============================
+/* =========================================
    ANSWER TITLE
-============================== */
+========================================= */
 
 .answer-box h2 {
   margin: 0 0 20px;
@@ -255,9 +265,9 @@
 }
 
 
-/* ==============================
+/* =========================================
    ANSWER CONTENT
-============================== */
+========================================= */
 
 .answer-content {
   color: #dddddd;
@@ -267,26 +277,35 @@
   line-height: 1.7;
 }
 
+
 .answer-content p {
   margin: 0 0 15px;
 }
+
 
 .answer-content p:last-child {
   margin-bottom: 0;
 }
 
+
 .answer-content h1,
 .answer-content h2,
 .answer-content h3 {
-  color: #ffffff;
-
   margin-top: 20px;
   margin-bottom: 10px;
+
+  color: #ffffff;
 }
+
 
 .answer-content strong {
   color: #ffffff;
 }
+
+
+/* =========================================
+   CODE
+========================================= */
 
 .answer-content code {
   padding: 3px 6px;
@@ -300,6 +319,7 @@
   font-family: monospace;
 }
 
+
 .answer-content pre {
   overflow-x: auto;
 
@@ -312,6 +332,7 @@
   background: #0b0b0b;
 }
 
+
 .answer-content pre code {
   padding: 0;
 
@@ -321,9 +342,9 @@
 }
 
 
-/* ==============================
+/* =========================================
    LINKS
-============================== */
+========================================= */
 
 .answer-content a {
   color: #e50914;
@@ -331,14 +352,15 @@
   text-decoration: none;
 }
 
+
 .answer-content a:hover {
   text-decoration: underline;
 }
 
 
-/* ==============================
+/* =========================================
    LISTS
-============================== */
+========================================= */
 
 .answer-content ul,
 .answer-content ol {
@@ -348,9 +370,9 @@
 }
 
 
-/* ==============================
+/* =========================================
    MOBILE
-============================== */
+========================================= */
 
 @media (max-width: 700px) {
 
@@ -385,9 +407,9 @@
 
 
   .answer-box {
-    padding: 22px 18px;
-
     margin-top: 20px;
+
+    padding: 22px 18px;
   }
 
 
@@ -408,9 +430,9 @@
 }
 
 
-/* ==============================
+/* =========================================
    SMALL MOBILE
-============================== */
+========================================= */
 
 @media (max-width: 450px) {
 
@@ -420,17 +442,13 @@
 
 
   .input-area input {
-    order: 1;
-
-    width: calc(100% - 70px);
+    width: 100%;
 
     flex: 1;
   }
 
 
   .send-button {
-    order: 2;
-
     width: 100%;
 
     margin-top: 2px;
