@@ -1,91 +1,72 @@
 import React from "react";
 import "./Sidebar.css";
 
-function Sidebar({ onNewChat, onLogout }) {
+function Sidebar({ onNewChat, onLogout, chatHistory = [], onSelectChat }) {
   return (
     <aside className="sidebar">
 
-      {/* =========================
-          LOGO
-      ========================= */}
-
+      {/* LOGO */}
       <div className="sidebar-header">
         <h2>
           <span className="sidebar-info-logo">i</span>
-          <span className="sidebar-title">INFO-AI</span>
+          INFO-AI
         </h2>
       </div>
 
-
-      {/* =========================
-          NEW CHAT
-      ========================= */}
-
+      {/* NEW CHAT */}
       <button
         className="new-chat-button"
         onClick={onNewChat}
       >
-        <span className="new-chat-icon">＋</span>
-        <span className="new-chat-text">New Chat</span>
+        + New Chat
       </button>
 
-
-      {/* =========================
-          CHAT HISTORY
-      ========================= */}
-
+      {/* RECENT CHATS */}
       <div className="chat-history">
 
         <p className="history-title">
-          Today
+          Recent Chats
         </p>
 
-        <button className="history-item">
-          <span>💬</span>
-          <span>Java Questions</span>
-        </button>
+        {chatHistory.length === 0 ? (
+          <p className="no-chats">
+            No recent chats
+          </p>
+        ) : (
+          chatHistory.map((chat, index) => (
+            <button
+              key={index}
+              className="history-item"
+              onClick={() => onSelectChat(chat)}
+              title={chat.question}
+            >
+              <span className="chat-icon">💬</span>
 
-        <button className="history-item">
-          <span>💬</span>
-          <span>Machine Learning</span>
-        </button>
-
-        <button className="history-item">
-          <span>💬</span>
-          <span>Python Basics</span>
-        </button>
+              <span className="chat-title">
+                {chat.question}
+              </span>
+            </button>
+          ))
+        )}
 
       </div>
 
-
-      {/* =========================
-          BOTTOM OPTIONS
-      ========================= */}
-
+      {/* BOTTOM */}
       <div className="sidebar-bottom">
 
         <button className="sidebar-option">
-          <span>⚙️</span>
-          <span className="sidebar-option-text">
-            Settings
-          </span>
+          ⚙ Settings
         </button>
 
         <button className="sidebar-option">
-          <span>👤</span>
-          <span className="sidebar-option-text">
-            Account
-          </span>
+          👤 Account
         </button>
 
         <button
-          className="sidebar-option logout-button"
+          className="sidebar-option"
           onClick={onLogout}
         >
-          <span>↪</span>
-          <span className="sidebar-option-text">
-            Logout
-          </span>
+          ↪ Logout
         </button>
 
       </div>

@@ -1,36 +1,103 @@
 import React, { useState } from "react";
-
 import Sidebar from "../components/Sidebar";
 import ChatBox from "../components/ChatBox";
-
 import "./Home.css";
 
 function Home({ onLogout }) {
 
-  const [chatKey, setChatKey] = useState(0);
+  // ==============================
+  // RECENT CHAT HISTORY
+  // ==============================
+
+  const [chatHistory, setChatHistory] = useState([]);
+
+  // ==============================
+  // NEW CHAT
+  // ==============================
 
   const handleNewChat = () => {
-
-    setChatKey(
-      (previousKey) => previousKey + 1
+    // Tell ChatBox to start a new chat
+    window.dispatchEvent(
+      new Event("new-chat")
     );
+  };
 
+  // ==============================
+  // ADD CHAT TO HISTORY
+  // ==============================
+
+  const handleChatSaved = (chat) => {
+
+    if (!chat || !chat.question) {
+      return;
+    }
+
+    setChatHistory((previous) => {
+
+      // Remove duplicate question
+      const filtered = previous.filter(
+        (item) =>
+          item.question !== chat.question
+      );
+
+      // Put newest chat at top
+      return [
+        chat,
+        ...filtered,
+      ];
+    });
+  };
+
+  // ==============================
+  // SELECT OLD CHAT
+  // ==============================
+
+  const handleSelectChat = (chat) => {
+
+    window.dispatchEvent(
+      new CustomEvent("select-chat", {
+        detail: chat,
+      })
+    );
   };
 
   return (
-    <div className="app-layout">
+    <div className="home">
+
+      {/* ==============================
+          SIDEBAR
+      ============================== */}
 
       <Sidebar
         onNewChat={handleNewChat}
         onLogout={onLogout}
+        chatHistory={chatHistory}
+        onSelectChat={handleSelectChat}
       />
+
+
+      {/* ==============================
+          MAIN CONTENT
+      ============================== */}
 
       <main className="main-content">
 
-       
+        {/* HEADER */}
+
+        <header className="top-header">
+
+          <h1>
+            College AI Assistant
+          </h1>
+
+        </header>
 
 
-        <div className="welcome">
+        {/* ==============================
+            WELCOME
+        ============================== */}
+
+        <section className="welcome-section">
 
           <h2>
             How can I help you today?
@@ -40,10 +107,16 @@ function Home({ onLogout }) {
             Ask questions, upload files, or upload images.
           </p>
 
-        </div>
+        </section>
 
 
-        <ChatBox key={chatKey} />
+        {/* ==============================
+            CHAT BOX
+        ============================== */}
+
+        <ChatBox
+          onChatSaved={handleChatSaved}
+        />
 
       </main>
 

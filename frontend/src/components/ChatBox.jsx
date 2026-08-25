@@ -1,44 +1,111 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import FileUpload from "./FileUpload";
 import "./ChatBox.css";
 
-// ================================
-// DEPLOYED FASTAPI BACKEND
-// ================================
-const API_URL = import.meta.env.VITE_API_URL;
+function ChatBox({ onChatSaved }) {
 
-
-function ChatBox() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
 
+  // ==============================
+  // NEW CHAT
+  // ==============================
 
-  // ================================
-  // SELECT FILE
-  // ================================
+  useEffect(() => {
+
+    const handleNewChat = () => {
+      setQuestion("");
+      setAnswer("");
+      setSelectedFile(null);
+    };
+
+    window.addEventListener(
+      "new-chat",
+      handleNewChat
+    );
+
+    return () => {
+      window.removeEventListener(
+        "new-chat",
+        handleNewChat
+      );
+    };
+
+  }, []);
+
+
+  // ==============================
+  // SELECT OLD CHAT
+  // ==============================
+
+  useEffect(() => {
+
+    const handleSelectChat = (event) => {
+
+      const chat = event.detail;
+
+      if (!chat) {
+        return;
+      }
+
+      setQuestion(chat.question || "");
+      setAnswer(chat.answer || "");
+      setSelectedFile(null);
+
+    };
+
+    window.addEventListener(
+      "select-chat",
+      handleSelectChat
+    );
+
+    return () => {
+      window.removeEventListener(
+        "select-chat",
+        handleSelectChat
+      );
+    };
+
+  }, []);
+
+
+  // ==============================
+  // FILE SELECT
+  // ==============================
+
   const handleFileSelect = (file) => {
-    console.log("Selected file:", file);
+
+    console.log(
+      "Selected file:",
+      file
+    );
+
     setSelectedFile(file);
   };
 
 
-  // ================================
+  // ==============================
   // REMOVE FILE
-  // ================================
+  // ==============================
+
   const removeFile = () => {
     setSelectedFile(null);
   };
 
 
-  // ================================
+  // ==============================
   // SEND QUESTION
-  // ================================
+  // ==============================
+
   const sendQuestion = async () => {
 
-    if (!question.trim() && !selectedFile) {
+    if (
+      !question.trim() &&
+      !selectedFile
+    ) {
       return;
     }
 
@@ -58,8 +125,15 @@ function ChatBox() {
 
         const formData = new FormData();
 
-        formData.append("question", question);
-        formData.append("file", selectedFile);
+        formData.append(
+          "question",
+          question
+        );
+
+        formData.append(
+          "file",
+          selectedFile
+        );
 
         console.log(
           "Sending file:",
@@ -73,12 +147,13 @@ function ChatBox() {
 
 
         response = await fetch(
-          `${API_URL}/api/chat/file`,
+          "https://info-ai-bf52.onrender.com/api/chat/file",
           {
             method: "POST",
             body: formData,
           }
         );
+
       }
 
 
@@ -89,12 +164,13 @@ function ChatBox() {
       else {
 
         response = await fetch(
-          `${API_URL}/api/chat/`,
+          "https://info-ai-bf52.onrender.com/api/chat/",
           {
             method: "POST",
 
             headers: {
-              "Content-Type": "application/json",
+              "Content-Type":
+                "application/json",
             },
 
             body: JSON.stringify({
@@ -102,12 +178,9 @@ function ChatBox() {
             }),
           }
         );
+
       }
 
-
-      // =====================================
-      // RESPONSE STATUS
-      // =====================================
 
       console.log(
         "Response status:",
@@ -115,7 +188,10 @@ function ChatBox() {
       );
 
 
-      // Get response as text first
+      // =====================================
+      // READ RESPONSE
+      // =====================================
+
       const responseText =
         await response.text();
 
@@ -126,31 +202,40 @@ function ChatBox() {
       );
 
 
-      // =====================================
-      // HANDLE ERROR
-      // =====================================
-
       if (!response.ok) {
 
         throw new Error(
           `Backend error ${response.status}: ${responseText}`
         );
+
       }
 
-
-      // =====================================
-      // CONVERT RESPONSE TO JSON
-      // =====================================
 
       const data =
         JSON.parse(responseText);
 
 
       // =====================================
-      // SHOW AI ANSWER
+      // SHOW ANSWER
       // =====================================
 
-      setAnswer(data.answer);
+      setAnswer(
+        data.answer
+      );
+
+
+      // =====================================
+      // SAVE TO RECENT CHATS
+      // =====================================
+
+      if (onChatSaved) {
+
+        onChatSaved({
+          question: question,
+          answer: data.answer,
+        });
+
+      }
 
 
       // =====================================
@@ -163,6 +248,11 @@ function ChatBox() {
 
     }
 
+
+    // =====================================
+    // ERROR
+    // =====================================
+
     catch (error) {
 
       console.error(
@@ -170,45 +260,53 @@ function ChatBox() {
         error
       );
 
-
       setAnswer(
         `Error: ${error.message}`
       );
+
     }
+
+
+    // =====================================
+    // FINISH
+    // =====================================
 
     finally {
 
       setLoading(false);
+
     }
+
   };
 
-
-  // =====================================
-  // UI
-  // =====================================
 
   return (
 
     <div className="chat-container">
 
 
-      {/* =================================
-          INPUT AREA
-      ================================= */}
+      {/* ==============================
+          INPUT
+      ============================== */}
 
       <div className="input-area">
 
         <FileUpload
-          onFileSelect={handleFileSelect}
+          onFileSelect={
+            handleFileSelect
+          }
         />
 
 
         <input
           type="text"
+
           value={question}
 
           onChange={(event) =>
-            setQuestion(event.target.value)
+            setQuestion(
+              event.target.value
+            )
           }
 
           onKeyDown={(event) => {
@@ -221,7 +319,9 @@ function ChatBox() {
               event.preventDefault();
 
               sendQuestion();
+
             }
+
           }}
 
           placeholder="Ask anything..."
@@ -230,7 +330,11 @@ function ChatBox() {
 
         <button
           className="send-button"
-          onClick={sendQuestion}
+
+          onClick={
+            sendQuestion
+          }
+
           disabled={loading}
         >
 
@@ -243,9 +347,9 @@ function ChatBox() {
       </div>
 
 
-      {/* =================================
+      {/* ==============================
           SELECTED FILE
-      ================================= */}
+      ============================== */}
 
       {selectedFile && (
 
@@ -271,18 +375,22 @@ function ChatBox() {
 
           <button
             className="remove-file"
-            onClick={removeFile}
+
+            onClick={
+              removeFile
+            }
           >
             ×
           </button>
 
         </div>
+
       )}
 
 
-      {/* =================================
+      {/* ==============================
           LOADING
-      ================================= */}
+      ============================== */}
 
       {loading && (
 
@@ -295,15 +403,17 @@ function ChatBox() {
       )}
 
 
-      {/* =================================
+      {/* ==============================
           ANSWER
-      ================================= */}
+      ============================== */}
 
       {answer && !loading && (
 
         <div className="answer-box">
 
-          <h2>AI Answer</h2>
+          <h2>
+            AI Answer
+          </h2>
 
 
           <div className="answer-content">
@@ -319,8 +429,9 @@ function ChatBox() {
       )}
 
     </div>
-  );
-}
 
+  );
+
+}
 
 export default ChatBox;
