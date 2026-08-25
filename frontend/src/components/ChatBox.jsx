@@ -147,7 +147,7 @@ function ChatBox({ onChatSaved }) {
 
 
         response = await fetch(
-          "https://info-ai-bf52.onrender.com/api/chat/file",
+          "https://info-ai-br52.onrender.com/api/chat/file",
           {
             method: "POST",
             body: formData,
@@ -164,7 +164,7 @@ function ChatBox({ onChatSaved }) {
       else {
 
         response = await fetch(
-          "https://info-ai-bf52.onrender.com/api/chat/",
+          "https://info-ai-br52.onrender.com/api/chat/",
           {
             method: "POST",
 
