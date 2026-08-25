@@ -4,11 +4,13 @@
 
 .chat-container {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1180px;
 
-  margin: 30px auto 0;
+  margin: 0 auto;
 
   box-sizing: border-box;
+
+  color: #ffffff;
 }
 
 
@@ -20,6 +22,7 @@
   width: 100%;
 
   display: flex;
+
   align-items: center;
 
   gap: 12px;
@@ -29,7 +32,7 @@
 
 
 /* =========================================
-   TEXT INPUT
+   INPUT
 ========================================= */
 
 .input-area input {
@@ -50,24 +53,18 @@
 
   color: #ffffff;
 
-  font-family: inherit;
-
   font-size: 16px;
 
   outline: none;
 
-  transition: border-color 0.2s,
-              box-shadow 0.2s;
+  transition: 0.2s;
 }
-
 
 .input-area input:focus {
   border-color: #e50914;
 
-  box-shadow:
-    0 0 0 1px #e50914;
+  box-shadow: 0 0 0 1px #e50914;
 }
-
 
 .input-area input::placeholder {
   color: #777777;
@@ -81,9 +78,9 @@
 .send-button {
   height: 58px;
 
-  min-width: 110px;
+  min-width: 120px;
 
-  padding: 0 24px;
+  padding: 0 25px;
 
   border: none;
 
@@ -93,29 +90,18 @@
 
   color: #ffffff;
 
-  font-family: inherit;
-
   font-size: 16px;
 
   font-weight: 700;
 
   cursor: pointer;
 
-  transition:
-    background 0.2s,
-    transform 0.1s;
+  transition: 0.2s;
 }
-
 
 .send-button:hover {
   background: #f40612;
 }
-
-
-.send-button:active {
-  transform: scale(0.97);
-}
-
 
 .send-button:disabled {
   opacity: 0.6;
@@ -133,6 +119,7 @@
   max-width: 100%;
 
   display: flex;
+
   align-items: center;
 
   gap: 10px;
@@ -152,12 +139,6 @@
   color: #dddddd;
 }
 
-
-.file-icon {
-  font-size: 16px;
-}
-
-
 .file-name {
   max-width: 500px;
 
@@ -166,14 +147,9 @@
   white-space: nowrap;
 
   text-overflow: ellipsis;
-
-  font-size: 14px;
 }
 
-
 .remove-file {
-  padding: 0 3px;
-
   border: none;
 
   background: transparent;
@@ -182,11 +158,8 @@
 
   font-size: 20px;
 
-  line-height: 1;
-
   cursor: pointer;
 }
-
 
 .remove-file:hover {
   color: #e50914;
@@ -202,7 +175,7 @@
 
   margin-top: 20px;
 
-  padding: 15px 18px;
+  padding: 15px;
 
   box-sizing: border-box;
 
@@ -213,13 +186,11 @@
   background: #151515;
 
   color: #bbbbbb;
-
-  font-size: 15px;
 }
 
 
 /* =========================================
-   ANSWER BOX
+   ANSWER
 ========================================= */
 
 .answer-box {
@@ -238,15 +209,7 @@
   background: #151515;
 
   color: #ffffff;
-
-  box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.25);
 }
-
-
-/* =========================================
-   ANSWER TITLE
-========================================= */
 
 .answer-box h2 {
   margin: 0 0 20px;
@@ -258,14 +221,7 @@
   color: #ffffff;
 
   font-size: 25px;
-
-  font-weight: 700;
 }
-
-
-/* =========================================
-   ANSWER CONTENT
-========================================= */
 
 .answer-content {
   color: #dddddd;
@@ -276,113 +232,15 @@
 }
 
 
-.answer-content p {
-  margin: 0 0 15px;
-}
-
-
-.answer-content p:last-child {
-  margin-bottom: 0;
-}
-
-
-.answer-content h1,
-.answer-content h2,
-.answer-content h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-
-  color: #ffffff;
-}
-
-
-.answer-content strong {
-  color: #ffffff;
-}
-
-
 /* =========================================
-   CODE
-========================================= */
-
-.answer-content code {
-  padding: 3px 6px;
-
-  border-radius: 5px;
-
-  background: #252525;
-
-  color: #ff4d58;
-
-  font-family: monospace;
-}
-
-
-.answer-content pre {
-  overflow-x: auto;
-
-  padding: 16px;
-
-  border: 1px solid #333333;
-
-  border-radius: 8px;
-
-  background: #0b0b0b;
-}
-
-
-.answer-content pre code {
-  padding: 0;
-
-  background: transparent;
-
-  color: #dddddd;
-}
-
-
-/* =========================================
-   LINKS
-========================================= */
-
-.answer-content a {
-  color: #e50914;
-
-  text-decoration: none;
-}
-
-
-.answer-content a:hover {
-  text-decoration: underline;
-}
-
-
-/* =========================================
-   LISTS
-========================================= */
-
-.answer-content ul,
-.answer-content ol {
-  margin: 10px 0 15px;
-
-  padding-left: 25px;
-}
-
-
-/* =========================================
-   MOBILE
+   MOBILE CHAT
 ========================================= */
 
 @media (max-width: 700px) {
 
-  .chat-container {
-    width: 100%;
-  }
-
-
   .input-area {
     gap: 8px;
   }
-
 
   .input-area input {
     height: 52px;
@@ -392,39 +250,19 @@
     font-size: 14px;
   }
 
-
   .send-button {
     height: 52px;
 
-    min-width: 80px;
+    min-width: 85px;
 
     padding: 0 14px;
 
     font-size: 14px;
   }
 
-
   .answer-box {
-    margin-top: 20px;
-
     padding: 22px 18px;
   }
-
-
-  .answer-box h2 {
-    font-size: 22px;
-  }
-
-
-  .answer-content {
-    font-size: 14px;
-  }
-
-
-  .file-name {
-    max-width: 200px;
-  }
-
 }
 
 
@@ -438,28 +276,15 @@
     flex-wrap: wrap;
   }
 
-
   .input-area input {
-    width: 100%;
-
     flex: 1;
   }
 
-
   .send-button {
     width: 100%;
-
-    margin-top: 2px;
   }
-
 
   .answer-box {
     padding: 18px 15px;
   }
-
-
-  .file-name {
-    max-width: 150px;
-  }
-
 }
