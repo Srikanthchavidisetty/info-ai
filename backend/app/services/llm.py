@@ -101,8 +101,8 @@ def ask_llm_with_file(
 
         if "429" in error_text or "RESOURCE_EXHAUSTED" in error_text:
             return (
-                "⚠️ AI quota has been reached for this Gemini API "
-                "project. Please wait for the quota to reset and "
+                "⚠️ AI quota has been reached limit"
+                "Please wait for the quota to reset and "
                 "try again."
             )
 
