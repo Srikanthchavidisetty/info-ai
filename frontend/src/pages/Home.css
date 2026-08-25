@@ -67,20 +67,17 @@ body {
 /* =========================================
    MAIN CONTENT
 ========================================= */
-
 .main-content {
   margin-left: 260px;
-
   width: calc(100% - 260px);
-  min-height: 100vh;
 
-  box-sizing: border-box;
+  min-height: 100vh;
 
   background: #111111;
 
-  padding: 0 40px 60px;
+  padding: 0 40px;
 
-  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 
@@ -97,24 +94,22 @@ body {
 /* =========================================
    WELCOME SECTION
 ========================================= */
-
 .welcome {
   width: 100%;
   max-width: 1000px;
 
   margin: 0 auto;
 
-  padding-top: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 120px;
 
   box-sizing: border-box;
 
   text-align: center;
 }
-
-
-/* =========================================
-   WELCOME TITLE
-========================================= */
 
 .welcome h2 {
   margin: 0 0 15px;
@@ -122,18 +117,10 @@ body {
   color: #ffffff;
 
   font-size: 40px;
-
-  line-height: 1.2;
-
   font-weight: 700;
 
   text-align: center;
 }
-
-
-/* =========================================
-   WELCOME DESCRIPTION
-========================================= */
 
 .welcome p {
   margin: 0;
@@ -141,8 +128,6 @@ body {
   color: #999999;
 
   font-size: 17px;
-
-  line-height: 1.6;
 
   text-align: center;
 }
